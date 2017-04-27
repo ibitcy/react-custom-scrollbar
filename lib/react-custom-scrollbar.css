@@ -1,0 +1,66 @@
+.custom-scroll .outer-container {
+  overflow: hidden;
+  position: relative;
+}
+.custom-scroll .outer-container:hover .custom-scrollbar {
+  opacity: 1;
+  transition-duration: 0.2s;
+}
+.custom-scroll .inner-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.custom-scroll .inner-container.content-scrolled:after {
+  opacity: 1;
+}
+.custom-scroll .custom-scrollbar {
+  user-select: none;
+  position: absolute;
+  height: 100%;
+  width: 20px;
+  right: 0;
+  opacity: 1;
+  z-index: 50;
+  transition: opacity 0.4s ease-out;
+  padding: 20px 0;
+  box-sizing: border-box;
+  will-change: opacity;
+  cursor: pointer;
+}
+.custom-scroll .custom-scrollbar .custom-scroll-handle {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+.custom-scroll .custom-scrollbar .inner-handle {
+  height: calc(100% - 12px);
+  margin-top: 6px;
+  width: 14px;
+  transform: translateX(2px);
+}
+.custom-scroll .custom-scrollbar .inner-handle:after {
+  content: '';
+  display: block;
+  background-color: #7d8da1;
+  border-radius: 3px;
+  width: 6px;
+  height: 100%;
+  transform: translateX(7px);
+  transition: transform 0.2s, width 0.2s, opacity 0.2s, border-radius 0.2s;
+  opacity: 0.15;
+}
+.custom-scroll .custom-scrollbar .inner-handle:hover:after {
+  border-radius: 4px;
+  width: 10px;
+  transform: translateX(5px);
+  opacity: 0.25;
+}
+.custom-scroll.scroll-handle-dragged .inner-container {
+  user-select: none;
+}
+.custom-scroll.scroll-handle-dragged .inner-handle:after {
+  border-radius: 4px;
+  width: 10px;
+  transform: translateX(5px);
+  opacity: 0.4 !important;
+}
